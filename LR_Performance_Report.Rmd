@@ -1,0 +1,47 @@
+# MDI Logistic Regression Performance Report
+
+## `r results[['formula']]`
+
+--------------------------------
+
+### User
+
+`r Sys.getenv("USERNAME")`
+
+### Runtime
+
+`r Sys.time()`
+
+### Formula 
+
+```{r,echo = F,comment=""}
+results[['fit']][['formula']]
+```
+
+--------------------------------
+
+### Summary
+
+```{r,echo = F,comment=""}
+summary(results[['fit']])
+```
+
+--------------------------------
+
+### AUC
+
+```{r,echo=F}
+results[['auc']]@y.values[[1]]
+```
+
+--------------------------------
+
+### ROC Curve
+
+```{r,echo=F}
+plot(results[['roc']])
+abline(0,1,col = 'red')
+```
+
+--------------------------------
+
